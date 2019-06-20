@@ -17,6 +17,7 @@ phases:
       # - npm test
   build:
     commands:
+      - npm run-script build
       # Use AWS SAM to package the application by using AWS CloudFormation
       # - aws s3 cp --recursive public/ s3://$WEBSITE_S3_BUCKET/public/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
       # - sed -i -e "s|assets/|$WEBSITE_S3_PREFIX/public/assets/|g" public/index.html
@@ -26,3 +27,4 @@ artifacts:
   files:
     - '**/*'
   name: myname-$(date +%Y-%m-%d) 
+  base-directory: public
